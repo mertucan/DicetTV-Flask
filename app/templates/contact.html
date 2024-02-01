@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block title %} Contact {% endblock %} 
+
+{% block content %}
+<body>
+    
+    </div>
+    <!-- contact section start -->
+    <div class="contact_section layout_padding">
+      <div class="container">
+        <h1 class="check_text">Check ability to connect our services in your area</h1>
+        <div class="contact_section2">
+          <div class="addres_main">
+            <div class="input_bg">
+              <h3 class="fact_text">It is a long established fact that a reader will be distracted</h3>
+              <form action="{{ url_for('add_email_to_contacts') }}" method="post">
+                <input type="email" class="address_text" placeholder="Enter your address" name="email", required>
+                <button type="submit" class="get_bt">GET STARTED</button>
+              </form>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- contact section end -->
+    
+    
+    <!-- Javascript files-->
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+
+    <!-- sidebar -->
+    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+</body>
+{%endblock%}

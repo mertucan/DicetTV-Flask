@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block title %} Blog {% endblock %} 
+
+{% block content %}
+<body>
+    
+    </div>
+    <!-- client section start -->
+    <div class="client_section layout_padding">
+      <div class="container">
+        <h1 class="client_taital">What our clients say</h1>
+        {% for blog in blog_data %}
+    <div class="client_section2 layout_padding">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="client_image"><img src="{{ url_for('static', filename='images/img-3.png') }}"></div>
+            </div>
+            <div class="col-sm-8">
+                <div class="miller_text">{{ blog.username }}<span class="quote_icon"><img src="{{ url_for('static', filename='images/quote-icon.png') }}"></span></div>
+                <p class="ipsum_text">{{ blog.message }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+      </div>
+    </div>
+    <!-- client section end -->
+    <!-- Javascript files-->
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+
+    <!-- sidebar -->
+    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='js/owl.carousel.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+</body>
+{%endblock%}

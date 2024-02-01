@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        {% if current_user.is_authenticated %}
+            <h1 style="text-align: center;;">Welcome to Your Profile!</h1>
+            <div class="profile-info">
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+                <p><strong>Username:</strong> {{ current_user.username }}</p>
+            </div>
+        {% else %}
+            <p class="login-message">You are not logged in. Please <a href="{{ url_for('login') }}">login</a>.</p>
+        {% endif %}
+    </div>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 8px 0;
+            font-size: 16px;
+           
+        }
+
+        .login-message {
+            color: #dc3545;
+        }
+    </style>
+{% endblock %}

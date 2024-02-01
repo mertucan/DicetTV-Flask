@@ -1,0 +1,86 @@
+{% extends 'base.html' %} 
+
+{% block title %} Cart {% endblock %} 
+
+{% block content %}
+  <div class="profile-container">
+    <h2 style="color: #333; text-align: center; margin-top: 20px; padding: 10px; border-bottom: 1px solid #ddd;">Your Cart</h2>
+    
+    <table class="profile-info" style="border-collapse: collapse; width: 100%; margin-top: 20px; background-color: white; border: 1px solid #ddd; ">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Username</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Service</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_data %}
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ item.username }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ item.name }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ item.price }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" style="text-align: right; padding: 10px; border: 1px solid #ddd;"><strong>Total:</strong></td>
+          <td id="totalPrice" style="padding: 10px; border: 1px solid #ddd;"></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button onclick="clearCart()" style="margin-top: 20px; padding: 10px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Clear Cart</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cartItems = document.querySelectorAll('.profile-info tbody tr');
+      var totalPrice = 0;
+  
+      cartItems.forEach(function(item) {
+        var price = parseFloat(item.querySelector('td:nth-child(3)').textContent.replace('$', ''));
+        totalPrice += price;
+      });
+  
+      document.getElementById('totalPrice').textContent = '$' + totalPrice.toFixed(2);
+    });
+  
+    function clearCart() {
+      window.location.href = "{{ url_for('clear_cart') }}";
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #495057;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+{% endblock %}

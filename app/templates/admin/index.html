@@ -1,0 +1,17 @@
+{% extends 'admin/master.html' %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+{% endblock %}
+
+{% block body %}
+  <div class="container text-center">
+    <h1 class="mt-4">Welcome to the Admin Page!</h1>
+    
+    <form action="{{ url_for('logout') }}" method="post">
+      <button type="submit" class="btn btn-danger mt-3">Logout</button>
+    </form>
+  </div>
+
+{% endblock %}

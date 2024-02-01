@@ -1,0 +1,54 @@
+<!-- footer section start -->
+{% if current_user.is_authenticated %}
+<div class="footer_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="footer_logo"><img src="{{ url_for('static', filename='images/footer-logo.png') }}"></div>
+          <h1 class="customer_text">CUSTOMER SERVICE</h1>
+          <p class="footer_lorem_text">There are many variat
+ions of passages of L
+orem Ipsum available
+, but the majority h
+ave suffered altera
+tion in some form, by </p>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h1 class="customer_text">LET US HELP YOU</h1>
+          <p class="footer_lorem_text">There are many variat
+ions of passages of L
+orem Ipsum available
+, but the majority h
+ave suffered altera
+tion in some form, by </p>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h1 class="customer_text">INFORMATION</h1>
+          <a href="{{ url_for('about') }}" class="footer_lorem_text1">About Us</a>
+          <a href="{{ url_for('products') }}" class="footer_lorem_text1">Products</a>
+          <a href="{{ url_for('blog') }}" class="footer_lorem_text1">Blog</a>
+          <a href="{{ url_for('contact') }}" class="footer_lorem_text1">Contact Us</a>
+          <a href="{{ url_for('more') }}" class="footer_lorem_text1">More</a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h1 class="customer_text">OUR SHOP</h1>
+          <p class="footer_lorem_text">There are many variat
+ions of passages of L
+orem Ipsum available
+, but the majority h
+ave suffered altera
+tion in some form, by </p>
+        <div class="social_icon">
+          <ul>
+            <li><a href="https://www.facebook.com/?locale=tr_TR"><img src="{{ url_for('static', filename='images/fb-icon.png') }}"></a></li>
+            <li><a href="https://twitter.com/login?lang=tr"><img src="{{ url_for('static', filename='images/twitter-icon.png') }}"></a></li>
+            <li><a href="https://www.instagram.com/"><img src="{{ url_for('static', filename='images/instagram-icon.png') }}"></a></li>
+            <li><a href="https://tr.linkedin.com/"><img src="{{ url_for('static', filename='images/linkedin-icon.png') }}"></a></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  <!--  footer section end -->

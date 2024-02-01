@@ -1,0 +1,67 @@
+<div class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="logo"><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}"></a></div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('products') }}">Products</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact us</a>
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        </li>           
+          </ul>
+          <div class="search_icon">
+            <ul>
+              <li><a href="{{ url_for('profile') }}"><img src="{{ url_for('static', filename='images/user-icon.png') }}"></a></li>
+              <li><a href="{{ url_for('cart') }}"><img src="{{ url_for('static', filename='images/bag-icon.png') }}"></a></li>
+            </ul>
+          </div>
+          {% if current_user.username == 'admin' %}
+                  <script>
+                      window.location.href = "{{ url_for('admin.index') }}";
+                  </script>
+          {% endif %}
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+    </li>
+    {%endif%}
+        </div>
+      </nav>
+    </div>
+
+    <style>
+      .navbar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .navbar-nav li {
+        margin-right: 20px; /* İstediğiniz boşluk miktarını ayarlayabilirsiniz */
+      }
+    </style>
