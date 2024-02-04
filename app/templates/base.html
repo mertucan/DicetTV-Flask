@@ -2,18 +2,18 @@
 <html lang="en">
     <head>
         <title>{% block title %}{% endblock %} - My Flask App</title>
-        {%include "_head_content.html"%}
+        {%include "parts/_head_content.html"%}
     </head>
 
     <body>
 
-        {%include "_header_section.html"%}
+        {%include "parts/_header_section.html"%}
 
         {% block content %} {% endblock %}
 
-        {% include "_footer.html" %}
+        {% include "parts/_footer.html" %}
 
-        {% include "_copyright.html" %}
+        {% include "parts/_copyright.html" %}
     </body>
 </html>
 

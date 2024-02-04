@@ -5,41 +5,8 @@
 {% block content %}
 <body>
     </div>
-    <!-- product section start -->
-    <div class="product_section layout_padding margin_top0">
-      <div class="container">
-        <h2 class="tariffs_text">Tariffs</h2>
-        <h1 class="choose_text">Choose your plan</h1>
-        <p class="lorem_text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum, est ac faucibus hendrerit, mauris ante viverra urna, in elementum urna est ut ligula.</p>
-        <div class="product_section2">
-          <div class="row">
-            {% for product in product_data %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <h2 class="easy_text">{{ product.name }}</h2>
-                    <h1 class="internet_text">{{ product.package }}</h1>
-                    <div class="month_main clearfix">
-                        <h1 class="dolor_text">{{ product.price }}</h1>
-                        <h2 class="month_text">{{ product.month }}</h2>
-                        <p class="long_text">{{ product.desc }}</p>
-                    </div>
-                    <div class="seemore_main">
-                      <div class="see_more">
-                          <form method="post" action="{{ url_for('add_item_to_cart') }}">
-                              <input type="hidden" name="username" value="{{ current_user.username }}">
-                              <input type="hidden" name="name" value="{{ product.name }}">
-                              <input type="hidden" name="price" value="{{ product.price }}">
-                              <button type="submit" class="rounded-button">Add to Cart</button>
-                          </form>
-                      </div>
-                  </div>
-                </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- product section end -->
-    <!-- Javascript files-->
+    {%include "parts/_product_section.html"%}
+ 
     <!-- jQuery -->
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
